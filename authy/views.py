@@ -10,14 +10,6 @@ from rest_framework.permissions import (
     IsAuthenticated
 )
 
-class AccountVerificationView(APIView):
-    authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,)
-    def post(self, request, format=None):
-        # data, status_code = verify_user(request)
-        return Response(11212, status=200)
-
-
 class UserRegistrationView(CreateAPIView):
     permission_classes = [AllowAny,]
     serializer_class = UserSerializer

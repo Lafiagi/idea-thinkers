@@ -2,9 +2,7 @@ from django.db import models
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.dispatch import receiver
 from django.db.models.signals import post_save
-from django.contrib.auth.models import PermissionsMixin
 from rest_framework.authtoken.models import Token
-from django.core.validators import RegexValidator
 import os
 
 # Create your models here.
@@ -12,17 +10,21 @@ class UserManager(BaseUserManager):
     def create_user(self, email, first_name, last_name, password, phone_number):
         if not email:
             raise ValueError("Email cannot be empty.")
+
         if not first_name:
             raise ValueError("First name must be provided.")
+
+        if not last_name:
+            raise ValueError("Last name must be provided.")
+
         if not password:
             raise ValueError("Password must be provided.")
+
         if not phone_number:
             raise ValueError("Phone number must be provided.")
 
         user = self.model(
             email=self.normalize_email(email),
-            # full_name=first_name,
-            # phone_number=phone_number,
         )
         user.set_password(password)
         user.save(using=self._db)

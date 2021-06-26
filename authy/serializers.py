@@ -22,7 +22,7 @@ class UserSerializer(ModelSerializer):
     last_name = serializers.CharField( max_length=100, required = True , write_only = True)
     phone_number = serializers.CharField( max_length=100, required = True , write_only = True)
     email = serializers.CharField( max_length=100, required = True , write_only = True)
-    # avatar = serializers.FileField(blank = True, null = True)
+    avatar = serializers.ImageField()
     password = serializers.CharField( max_length=100, required = True , write_only = True)
     class Meta:
         model = User
