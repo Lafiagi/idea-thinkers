@@ -1,0 +1,9 @@
+django==2.2
+django-cors-middleware==1.3.1
+django-rest-swagger==2.2.0
+djangorestframework==3.9.4
+django-fsm
+django-filter
+gunicorn
+django_heroku
+django-cors-headers
