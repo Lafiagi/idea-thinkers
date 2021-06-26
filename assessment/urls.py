@@ -5,5 +5,5 @@ from authy.urls import auth_patterns
 swagger_view = get_swagger_view(title='Idea Thinkers Assessment API')
 urlpatterns = [
     path('', swagger_view),
-    path('auth/', include(auth_patterns)),
+    path('api/v1/auth/', include(auth_patterns)),
 ]
