@@ -7,4 +7,4 @@ django-filter
 gunicorn
 django_heroku
 django-cors-headers
-psycopg2-binary>=2.8
+psycopg2-binary==2.8
